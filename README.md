@@ -5,6 +5,6 @@ With this extension you can manage participant for a specific event/convention  
 
 ## To install 
 
-git clone https://github.com/raebo/radiant-event-registration-extension.git event_registration/
+git clone https://github.com/raebo/radiant-event-registration-extension.git vendor/extensions/event_registration/
 
 rake radiant:extensions:event_registration:migrate
