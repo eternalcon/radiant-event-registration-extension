@@ -1,0 +1,5 @@
+<h1>Edit Free-Form</h1>
+
+<%= error_messages_for :free_form %> 
+
+<% form_for @free_form, :url => { :action => "update" } do |f| %> <%= render :partial => "form", :locals => {:submit_message => "Update", :f => f}  %><% end %>

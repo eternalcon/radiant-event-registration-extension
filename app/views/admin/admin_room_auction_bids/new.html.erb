@@ -1,0 +1,15 @@
+<h3>Eintragen eines neuen Gebots für die Auktion</h3>
+
+<%= error_messages_for :ra_bid %> 
+
+<% form_for :ra_bid, 
+            :url => admin_event_room_auction_bids_path(@event, @room_auction), 
+            :method => :post  do |f| %> 
+            
+<p><b>Name of Bidder:</b> <%= f.text_field :bidder_full_name %></p>
+<p><b>E-Mail of Bidder:</b> <%= f.text_field :bidder_email %></p>
+<p><b>Bid in €:</b> <%= f.text_field :bidder_bid, :size => 5 %></p>
+<p><b>Datetime of Bid:</b> <%= f.text_field :bidder_bid_date_time %></p>
+<p><%= submit_tag("Save") %></p>
+
+<% end %>

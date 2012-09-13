@@ -1,0 +1,23 @@
+<h1>Übersicht der Teilnehmer für das Event <i><%= @event.name -%></i><span style="margin-left: 15px;">(<%= @registrations.size -%>)</span></h1>
+
+<table border="0" cellspacing="0" cellpadding="0" style="width: 100%;" class="index">
+  <tr>
+    <th>Name</th>
+    <th>E-Mail</th>
+    <th>Datum</th>
+    <th>Doppelbett</th>
+    <th>Dreibett</th>
+    <th style="width: 40%;">Notizen</th>
+  </tr>
+  
+  <% @registrations.each do |registration| -%>
+    <tr>
+      <td><%= registration.participant.first_name + " " + registration.participant.last_name -%></td>
+      <td><%= registration.participant.email -%></td>
+      <td><%= I18n.localize(registration.created_at, :format => :default) -%></td>
+      <td><%= registration.wants_double_room -%></td>
+      <td><%= registration.wants_tripple_room -%></td>
+      <td><%= registration.notes -%></td>
+    </tr>
+  <% end -%>
+</table>

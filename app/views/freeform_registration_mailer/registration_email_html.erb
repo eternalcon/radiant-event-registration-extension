@@ -1,0 +1,33 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+
+	<title>Registration Freeform</title>
+	
+</head>
+
+<body>
+  
+  <h3>Hello <%= @participant.first_name + " " + @participant.last_name -%>,</h3>
+  
+  <p>
+  You registered for the freeform  <%= @freeform_registration.freeform.title -%>.<br>
+  
+  A copy of this message will be send to the author of the freeform.<br>
+
+  As soon as we get new infos, we will inform you.
+  </p>
+  <p>
+  Have fun
+  </p>
+  <p>
+<br>
+  Gruss Pittel<br>
+
+  PS.: for more information visit <a href="http://eternal-con.de">EternalCon.de</a> or <a href="http://www.facebook.com/EternalConvention">Facebook</a><br>
+  </p>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<h1 style="font-size: 155%;text-align: center;border-bottom: 1px solid #999;padding-bottom: 2px;">Announcement for a new game round</h1>
+
+<div>
+	<%= content_tag('div', flash[:error], :class => 'flash error', :id => "flash_error_div", :style => "margin: 25px; padding: 30px;" ) if flash[:error] %>
+</div>
+
+
+<% remote_form_for(:game, :url => { :action => "create" }, :html => {:method => :post}  ) do |f| -%>
+  <%= f.hidden_field :event_id %>
+  
+  <table cellspacing="0" cellpadding="0" border="0" width="100%;">
+    <tbody>
+      <tr>
+			  <td class="formlabel"><%= label_tag(:game_title, "Name of your round:") %></td>
+				<td class="forminp" colspan="3"><%= text_field :game, :game_title, :style => "width: 575px;" %></td>
+  		</tr>      
+      
+  	  <tr>
+			  <td class="formlabel"><%= label_tag(:name_of_gamemaster, "Name of Gamemaster:") %></td>
+				<td class="forminp" colspan="1"><%= text_field :game, :name_of_gamemaster %></td>
+				<td class="formlabel"><%= label_tag(:game_block_id, "Game Block:") %></td>
+				<td colspan="1"class="forminp"><%= block_type_select %><br></td>
+  		</tr>
+  		
+  		<tr>
+    	  <td class="formlabel"><%= label_tag(:system, "Gamesystem:") %></td>
+				<td class="forminp" colspan="1"><%= text_field :game, :system %></td>
+				<td class="formlabel"><%= label_tag(:world, "World:") %></td>
+				<td class="forminp" colspan="1"><%= text_field :game, :world %></td>
+			</tr>
+			
+			<tr>
+			  <td class="formlabel"><%= label_tag(:description, "Description:") %></td>
+				<td class="forminp" colspan="3"><%= f.text_area :description, :style => "width: 575px;" %></td>
+			</tr>
+  
+      <tr>
+			  <td class="formlabel"><%= label_tag(:player_count, "Players:") %></td>
+				<td class="forminp" colspan="1"><%= text_field :game, :player_count, :style => "width: 45px;" -%></td>
+				<td class="formlabel"><%= label_tag(:game_language, "Language:") %></td>
+				<td colspan="1"class="forminp"><%= game_language_select %><br></td>
+  		</tr>
+  
+      <tr style="height: 20px;">
+    		<td class="formlabel">&nbsp;</td>
+    		<td class="forminp">&nbsp;</td>					
+    	</tr>
+    	<tr style="height: auto ! important;">					
+    		<td class="formlabel">&nbsp;</td>
+    		<td colspan="3">
+    		    <input type="image" src="/images/buttons/submit.png" style="float: right;">
+    		</td>					
+    	</tr>
+    </tbody>
+  </table>
+  
+<% end %>

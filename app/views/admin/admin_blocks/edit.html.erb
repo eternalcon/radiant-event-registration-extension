@@ -1,0 +1,5 @@
+<h1>Edit Game-Block</h1>
+
+<%= error_messages_for :game_block %> 
+
+<% form_for @game_block, :url => { :action => "update" } do |f| %> <%= render :partial => "form", :locals => {:submit_message => "Update", :f => f}  %><% end %>

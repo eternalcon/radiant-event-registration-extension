@@ -1,0 +1,8 @@
+<% form_for @event, :url => { :action => "create" } do |f| %> 
+    <p>Event Name: <%= f.text_field :name %></p>
+    <p>Subtitle: <%= f.text_field :subtitle %></p>
+    <p>Event Start Date: <%= f.date_select :startdate %> </p>
+    <p>Event End Date: <%= f.date_select :enddate %> </p>
+    <p> Active Event? <%= f.check_box :active %></p>
+    <p><%= submit_tag("Save") %></p>
+<% end %>

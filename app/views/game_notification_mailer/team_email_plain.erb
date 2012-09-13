@@ -1,0 +1,23 @@
+Hallo Pittel, 
+
+auf www.eternal-con.de wurde eine neue Spielerunde mit den folgenden Daten eingetragen
+
+Name: <%= @game.game_title -%>
+
+Autor: <%= @game.name_of_gamemaster -%>
+
+Spielsystem: <%= @game.system -%>
+
+Spielwelt: <%= @game.world -%>
+
+Sprache: <%= t("#{@game.game_language}_to_german".to_sym) -%>
+
+Block:  <%= @game.game_block.blank? ? "k.a." : @game.game_block.title -%>
+
+Spieleranzahl: <%= @game.player_count -%>
+
+
+
+Beschreibung: <%= @game.description -%>
+
+Deine automatische Benachrichtigung

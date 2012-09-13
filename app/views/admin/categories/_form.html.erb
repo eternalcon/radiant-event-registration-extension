@@ -1,0 +1,5 @@
+<% form_for @category, :url => { :action => "create" } do |f| %> 
+    <p>Category Name: <%= f.text_field :name %>  </p>
+    <p>Category Type <%= f.text_field :type %> </p>
+    <p><%= submit_tag("Save") %></p>
+<% end %>

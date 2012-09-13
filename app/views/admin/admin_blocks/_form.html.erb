@@ -1,0 +1,4 @@
+<p>Day:  <%= select("game_block", "day", options_for_select([["Friday", "fri"], ["Saturday", "sat"], ["Sunday", "sun"]])) -%>
+<p>Title: <%= f.text_field :title %></p>
+<p>Order: <%= f.text_field :order_value %></p>
+<p><%= submit_tag("Save") %></p>

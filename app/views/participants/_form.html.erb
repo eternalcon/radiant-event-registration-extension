@@ -1,0 +1,66 @@
+<<<<<<< HEAD
+<% form_for :participant, @participant, :url => { :action => "create" }, :html => {:id => "registerPartForm"}  do |f| %> 
+    <%= f.hidden_field (:user_id) %>
+
+    <table cellspacing="0" cellpadding="0" border="0" width="100%;">
+    				<tbody><tr>
+    					<td class="formlabel"><%= f.label(:street, "Street:") %></td>
+    					<td class="forminp" colspan="3"><%= f.text_field :street %><br></td>
+    				</tr>
+    				<tr>
+    					<td class="formlabel"><%= f.label(:postcode, "Post Code:") %></td>
+    					<td class="forminp"><%= f.text_field :postcode, :class => "small"  %></td>
+    					<td class="formlabel"><%= f.label(:city, "City:") %></td> 
+    					<td class="forminp"><%= f.text_field :city, :class => "medsized" %></td>
+    				</tr>
+    				
+    				<tr style="height: 20px;">
+    					<td style="border-bottom: 1px solid rgb(205, 205, 205); margin-bottom: 10px;" class="formlabel">&nbsp;</td>
+    					<td colspan="3" style="border-bottom: 1px solid rgb(205, 205, 205); margin-bottom: 10px;" class="forminp">&nbsp;</td>					
+    				</tr>
+    				
+    				<tr>
+    					<td class="formlabel"><%= f.label(:country, "Country:") %></td>
+    					<td colspan="3"class="forminp"><%= select :participant, :country,  return_country_select, {:include_blank => true} %><br></td>
+    				</tr>
+    				<tr>
+    					<td class="formlabel"><%= f.label(:notes, "Notes:") %></td>
+    					<td colspan="3" class="forminp"><%= f.text_area( :notes, :size => "50x10") %><br></td>
+    				</tr>
+    				<tr>					
+    					<td colspan="4" class="formlabel">
+    					<%= f.label(:newsletter, "To receive our Newsletter with Updates about upcoming Events etc., please check this box:") %>
+    					<%= f.check_box :newsletter %><br></td>
+    				</tr>
+		
+    				<tr style="height: 20px;">
+    					<td class="formlabel">&nbsp;</td>
+    					<td class="forminp">&nbsp;</td>					
+    				</tr>
+    				<tr style="height: auto ! important;">					
+    					<td class="formlabel">&nbsp;</td>
+    					<td colspan="3">
+    					    <input type="image" src="/images/buttons/submit.png" style="float: right;">
+    					</td>					
+    				</tr>								
+                               							
+    </tbody></table>
+<% end -%>
+=======
+<% form_for :participant, @participant, :url => { :action => "create" } do |p| %> 
+    <h2> Personal Data:</h2>
+    <p><%= p.label(:first_name, "First Name:") %> <%= p.text_field :first_name %></p>
+    <p> <%= p.label(:last_name, "Last Name:") %> <%= p.text_field :last_name %></p>
+    <p><%= p.label(:email, "email:") %> <%= p.text_field :email %></p>    
+    <h2>Adress:</h2>
+    <p><%= p.label(:street, "Street:") %> <%= p.text_field :street %></p>
+    <p><%= p.label(:postcode, "Post Code:") %> <%= p.text_field :postcode %> <%= p.label(:city, "City:") %> <%= p.text_field :city %></p>
+    <p><%= p.label(:country, "Country:") %> <%= p.text_field :country %></p>
+    <p><%= p.label(:notes, "Notes:") %> <%= p.text_area( :notes, :size => "50x10") %></p>
+    <p>
+      <h3>To receive our Newsletter with Updates, Information about upcoming Events etc., please check this box:</h3><br />
+      <%= p.label(:newsletter, "Subscribe Newsletter") %> <%= p.check_box :newsletter %>
+    </p>
+    <p><%= submit_tag("Save") %></p>
+<% end %>
+>>>>>>> d1dd51a47b60b1dedde987624068b797ace954a6

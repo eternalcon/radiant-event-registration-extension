@@ -1,0 +1,64 @@
+<h1 style="font-size: 155%;text-align: center;border-bottom: 1px solid #999;padding-bottom: 2px;">Registration for The Eternal Convention 2012 - <i>Eternal ConSpiracy 2012</i></h1>
+
+<% remote_form_for(:registration, :url => { :action => "create" }, :html => {:method => :post}  ) do |f| -%>
+  <%= f.hidden_field :event_id %>
+
+  <table cellspacing="0" cellpadding="0" border="0" width="100%;">
+  				<tbody>
+  				  <tr>
+    					  <td class="formlabel"><%= label_tag(:first_name, "FirstName:") %></td>
+      					<td class="forminp" colspan="1"><%= text_field :participant, :first_name %></td>
+      					<td class="formlabel"><%= label_tag(:last_name, "LastName:") %></td>
+      					<td class="forminp" colspan="1"><%= text_field :participant, :last_name %></td>
+    				</tr>
+            <tr>
+          	  <td class="formlabel"><%= label_tag(:email, "EMail:") %></td>
+    					<td class="forminp" colspan="1"><%= text_field :participant, :email %></td>
+    					<td class="formlabel"><%= label_tag(:country, "Country:") %></td>
+    					<td colspan="1"class="forminp"><%= select :participant, :country,  return_country_select, {:include_blank => true} %><br></td>
+    				</tr>
+			
+  				  <tr style="height: 20px;">
+    					<td style="border-bottom: 1px solid rgb(205, 205, 205); margin-bottom: 10px;" class="formlabel">&nbsp;</td>
+    					<td colspan="3" style="border-bottom: 1px solid rgb(205, 205, 205); margin-bottom: 10px;" class="forminp">&nbsp;</td>					
+    				</tr>			
+		
+    				<tr>
+    					<td class="formlabel"><%= f.label(:notes, "Notes:") %></td>
+    					<td class="forminp" colspan="3"><%= f.text_area( :notes, :size => "100x10") %></td>
+    				</tr>
+    				<tr>
+    					<td class="formlabel" colspan="4">
+    					  <%= f.label(:wants_double_room, "I am interested in a bed in a Double-Room. This little luxury is going to cost me an additional 30 € payable at Checkin!") -%>
+                <%= f.check_box :wants_double_room %>
+              </td>
+    				</tr>
+    				<tr>
+    					<td class="formlabel" colspan="4">
+    					  <%= f.label(:wants_tripple_room, " I am interested in a bed in a Triple-Room. This little luxury is going to cost me an additional 20 € payable at Checkin!") -%>
+    					  <%= f.check_box :wants_tripple_room %>
+    					</td>
+    				</tr>
+          
+  				<tr>					
+  					<td colspan="4" class="formlabel">
+              <div id="recaptcha_div">
+                <%= render :partial => "recaptcha" -%>
+              </div>
+  					<%#= label_tag(:newsletter, "To receive our Newsletter with Updates about upcoming Events etc., please check this box:") %>
+  					<%#= check_box :participant, :newsletter %><br></td>
+  				</tr>
+
+  				<tr style="height: 20px;">
+  					<td class="formlabel">&nbsp;</td>
+  					<td class="forminp">&nbsp;</td>					
+  				</tr>
+  				<tr style="height: auto ! important;">					
+  					<td class="formlabel">&nbsp;</td>
+  					<td colspan="3">
+  					    <input type="image" src="/images/buttons/submit.png" style="float: right;">
+  					</td>					
+  				</tr>
+        </tbody>
+      </table>
+<% end -%>

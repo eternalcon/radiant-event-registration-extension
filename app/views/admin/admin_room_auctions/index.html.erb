@@ -1,0 +1,66 @@
+<% if @actual_auction.blank? -%>
+  <h3>Keine Auktion gefunden, Möchten Sie eine neue Auktion eintragen?</h3>
+
+  <%= error_messages_for :room_auction %> 
+
+  <% form_for @room_auction, :url => { :action => "create" } do |f| %> 
+  <%= f.hidden_field :event_id %>
+  
+  <p>RoomName: <%= f.text_field :room_name %></p>
+  <p>RoomDescription <%= f.text_area :room_description %></p>
+  <p>Enddatum: <%= f.text_field :auction_end_date %></p>
+  <p><%= submit_tag("Save") %></p>  
+    
+  <% end %>
+  
+<% else %>
+
+<div>
+  <h3>Details der aktuellen Auktion</h3>
+  
+  <table class="index" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <th>Raum</th>
+      <th>Höchstes Gebot</th>
+      <th>Ende der Auktion</th>
+      <th>Anzahl der Gebote</th>
+    </tr>
+    <tr>
+      <td><%= @actual_auction.room_name -%></td>
+      <td>
+        <% unless @actual_auction.highest_bid.blank? -%>
+          <%= @actual_auction.highest_bid.bidder_bid -%>&nbsp;€
+        <% end %>
+      </td>
+      <td><%= l(@actual_auction.auction_end_date, :format => :default) -%></td>
+      <td><%= @actual_auction.room_auction_bids.size -%></td>
+    </tr>
+  </table>
+
+</div>
+
+<div>
+  <h3>Zugehörige Gebote</h3>
+  <div>
+    <p>Neues Gebot einstellen: <%= link_to "Add new Bid",
+                                           new_admin_event_room_auction_bid_path(@event, @actual_auction)-%>      
+  </div>
+  <table class="index" border="0" cellspacing="0" cellpadding="0">
+    <tr>
+      <th>Wann</th>
+      <th>Von Wem</th>
+      <th>Wie Hoch</th>
+    </tr>
+    
+    <% @actual_auction.room_auction_bids.each do |bid| %>
+      <tr>
+        <td><%= bid.created_at -%></td>
+        <td><%= bid.bidder_full_name -%></td>
+        <td><%= bid.bidder_bid -%>
+      </tr>
+    <% end %>
+    
+    <% if @actual_auction.room_auction_bids.size == 0 -%>
+      <tr><td colspan="3">I`m sorry there are actually no bids</td></tr>
+    <% end %>
+<% end %>

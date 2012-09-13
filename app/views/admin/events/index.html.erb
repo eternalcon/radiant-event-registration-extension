@@ -1,0 +1,31 @@
+<h1>Listing Events</h1> 
+
+<table class="index">
+    <tr>
+        <th>Name</th>
+        <th>Subtitle</th>
+        <th>Startdate</th>
+        <th>Enddate</th>
+        <th>Active Event?</th>
+        <th>&nbsp;</th>
+        
+    </tr>
+<% @events.each do |event| %>
+    <tr>
+        <td><%= event.name %></td>
+        <td><%= event.subtitle %></td>
+        <td><%= event.startdate %></td>
+        <td><%= event.enddate %></td>
+        <td><%= event.active %></td>
+        <td>
+          <%= link_to("Blöcke", admin_event_blocks_path(event.id)) -%>
+          <%= link_to("Freeforms", admin_event_freeforms_path(event.id)) -%>
+          <%= link_to("Room-Auctions", admin_event_room_auctions_path(event.id)) -%>
+        </td>
+    </tr> 
+<% end %> 
+</table> 
+<br /> 
+<%= link_to "New Event", :action => "new" %>
+
+

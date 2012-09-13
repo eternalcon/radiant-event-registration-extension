@@ -1,0 +1,24 @@
+<h1>Listing Prices</h1> 
+
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Price</th>
+        <th>Valid From</th>
+        <th>Valid Until</th>
+        
+    </tr>
+<% @prices.each do |price| %>
+    <tr>
+        <td><%= price.name %></td>
+        <td><%= price.valid_from %></td>
+        <td><%= price.price %> </td>
+        <td><%= price.valid_until %></td>
+        
+    </tr> 
+<% end %> 
+</table> 
+<br /> 
+<%= link_to "New Price", :action => "new" %>
+
+

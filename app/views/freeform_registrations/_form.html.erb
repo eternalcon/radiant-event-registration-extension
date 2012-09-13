@@ -1,0 +1,42 @@
+<h1 style="font-size: 155%;text-align: center;border-bottom: 1px solid #999;padding-bottom: 2px;">Registration for - <i><%= @freeform.title -%></i></h1>
+
+<%#= error_messages_for :participant -%> 
+<%#= error_messages_for :freeform_registration -%> 
+<div>
+	<%= content_tag('div', flash[:error], :class => 'flash error', :id => "flash_error_div", :style => "margin: 25px; padding: 30px;" ) if flash[:error] %>
+</div>
+
+
+<% remote_form_for(:freeform_registration, :url => { :action => "create" }, :html => {:method => :post}  ) do |f| -%>
+  <%= f.hidden_field :freeform_id %>
+  
+  <table cellspacing="0" cellpadding="0" border="0" width="100%;">
+    <tbody>
+  	  <tr>
+			  <td class="formlabel"><%= label_tag(:first_name, "FirstName:") %></td>
+				<td class="forminp" colspan="1"><%= text_field :participant, :first_name %></td>
+				<td class="formlabel"><%= label_tag(:last_name, "LastName:") %></td>
+				<td class="forminp" colspan="1"><%= text_field :participant, :last_name %></td>
+  		</tr>
+  		
+  		<tr>
+    	  <td class="formlabel"><%= label_tag(:email, "EMail:") %></td>
+				<td class="forminp" colspan="1"><%= text_field :participant, :email %></td>
+				<td class="formlabel"><%= label_tag(:country, "Country:") %></td>
+				<td colspan="1"class="forminp"><%= select :participant, :country,  return_country_select, {:include_blank => true} %><br></td>
+			</tr>
+  
+      <tr style="height: 20px;">
+    		<td class="formlabel">&nbsp;</td>
+    		<td class="forminp">&nbsp;</td>					
+    	</tr>
+    	<tr style="height: auto ! important;">					
+    		<td class="formlabel">&nbsp;</td>
+    		<td colspan="3">
+    		    <input type="image" src="/images/buttons/submit.png" style="float: right;">
+    		</td>					
+    	</tr>
+    </tbody>
+  </table>
+  
+<% end %>

@@ -1,0 +1,24 @@
+<h1>Participant Registration for The Eternal Convention 2011 - Eternal Villains </h1>
+<h2>Participant Data:</h2>
+<p>Name: <%= @participant.first_name %> <%= @participant.last_name %></p>
+<p>E-Mail: <%= @participant.email %></p>
+<p>Street: <%= @participant.street %></p>
+<p> Postcode and City: <%= @participant.postcode %> <%=h @participant.city %></p>
+<p>Country of Origin: <%= @participant.country %></p>
+<p>Notes: <%= @participant.notes %></p>
+<p>
+  Newsletter Subscription:
+  <% if @participant.newsletter = true %>
+    Yes
+  <% else %>
+    No
+  <% end %>
+</p>
+
+<h2>Registration for <%= @event.name %> - <%= @event.subtitle %>:</h2>
+<p>
+  <%= @event.name %> - <%= @event.subtitle %> will be held from <strong><%= @event.startdate.strftime( "%d. %B %Y") %>
+  to <%= @event.enddate.strftime( "%d. %B %Y") %></strong> at Castle Stahleck, Bacharach, Germany.<br />
+  The Registration Fee of <strong><u>100 Euros</u></strong> includes three nights of accomodation in a real medieval castle,
+   three meals a day (breakfast, lunch and dinner) and more of the best Gaming Fun than any sane person could possibly stomach!
+</p>

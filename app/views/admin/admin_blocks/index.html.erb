@@ -1,0 +1,21 @@
+<h1>Listing GameBlocks for event <i><%= @event.name -%></h1> 
+
+<table class="index">
+    <tr>
+        <th>Order</th>
+        <th>Day</th>
+        <th>Title</th>
+        <th>&nbsp;</th>
+        
+    </tr>
+<% @game_blocks.each do |game_block| %>
+    <tr>
+        <td><%= game_block.order_value %></td>
+        <td><%= t(game_block.day.to_s) %></td>
+        <td><%= game_block.title -%></td>
+        <td><%= link_to("Edit", edit_admin_event_block_path(@event, game_block)) -%></td>
+    </tr> 
+<% end %> 
+</table> 
+<br /> 
+<%= link_to "New Block", :action => "new" %>

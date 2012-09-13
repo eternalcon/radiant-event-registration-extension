@@ -1,0 +1,24 @@
+<h1>Listing Freeforms for event <i><%= @event.name -%></h1> 
+
+<table class="index">
+    <tr>
+        <th>Title</th>
+        <th>Desc(short)</th>
+        <th>Desc(long)</th>
+        <th>&nbsp;</th>
+        
+    </tr>
+<% @freeforms.each do |free_form| %>
+    <tr>
+        <td><%= free_form.title %></td>
+        <td><%= free_form.desc_short %></td>
+        <td><%= free_form.desc_long -%></td>
+        <td>
+          <%= link_to("Edit", edit_admin_event_freeform_path(@event, free_form)) -%><br/>
+          <%= link_to("Teilnehmer (#{free_form.freeform_registrations.size})", admin_event_freeform_participants_path(@event, free_form)) -%>
+        </td>
+    </tr> 
+<% end %> 
+</table> 
+<br/> 
+<%= link_to "New Freeform", :action => "new" %>

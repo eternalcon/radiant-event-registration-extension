@@ -1,0 +1,19 @@
+<table border="0" cellspacing="0" cellpadding="0" style="width: 100%;" class="index">
+  <tr>
+    <th>Name</th>
+    <th>E-Mail</th>
+    <th>Land</th>
+    <th>Anmeldedatum</th>
+    <th>&nbsp;</th>
+  </tr>
+  
+  <% @registrations.each do |registration| -%>
+    <tr>
+      <td><%= registration.participant.first_name + " " + registration.participant.last_name -%></td>
+      <td><%= registration.participant.email -%></td>
+      <td><%= registration.participant.country -%></td>
+      <td><%= I18n.localize(registration.created_at, :format => :default) -%></td>
+      <td><%= link_to "Teilnehmer Entfernen", admin_event_freeform_participant_path(registration.freeform.event, registration.freeform, registration), :method => :delete -%></td>
+    </tr>
+  <% end -%>
+</table>
