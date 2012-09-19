@@ -1,4 +1,6 @@
 module RegistrationsHelper
+  include Recaptcha::ClientHelper
+
   def return_country_select
    ['United States',
      'Canada',

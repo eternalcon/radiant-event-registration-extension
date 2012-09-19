@@ -2,22 +2,28 @@
 
 <table border="0" cellspacing="0" cellpadding="0" style="width: 100%;" class="index">
   <tr>
+    <th>&nbsp;</th>
     <th>Name</th>
     <th>E-Mail</th>
     <th>Datum</th>
-    <th>Doppelbett</th>
-    <th>Dreibett</th>
     <th style="width: 40%;">Notizen</th>
+    <th>&nbsp;</th>
   </tr>
-  
+  <% counter = 1 -%>
   <% @registrations.each do |registration| -%>
     <tr>
+      <td><%= counter -%>
       <td><%= registration.participant.first_name + " " + registration.participant.last_name -%></td>
       <td><%= registration.participant.email -%></td>
-      <td><%= I18n.localize(registration.created_at, :format => :default) -%></td>
-      <td><%= registration.wants_double_room -%></td>
-      <td><%= registration.wants_tripple_room -%></td>
+      <td><%= I18n.localize(registration.created_at, :format => :short) -%></td>
       <td><%= registration.notes -%></td>
+      <td><%= link_to "Reservierung Entfernen", 
+                      admin_participant_path(registration), 
+                      :method => :delete,
+                      :confirm => "Wollen Sie die Reservierung wirklich löschen?" -%>
+      </td>
     </tr>
+
+    <% counter += 1 %>
   <% end -%>
 </table>

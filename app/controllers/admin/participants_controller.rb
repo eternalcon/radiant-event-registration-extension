@@ -7,7 +7,13 @@ class Admin::ParticipantsController < ApplicationController
     @registrations = Registration.find( :all, 
                                         :include => :participant,  
                                         :conditions => ['event_id=?', @event], 
-                                        :order => "participants.last_name DESC")
+                                        :order => "registrations.created_at ASC")
   end
 
+  def destroy
+    @registration = Registration.find(params[:id])
+    @registration.destroy
+
+    redirect_to admin_participants_path
+  end
 end

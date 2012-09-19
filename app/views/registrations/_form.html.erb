@@ -1,47 +1,115 @@
-<h1 style="font-size: 155%;text-align: center;border-bottom: 1px solid #999;padding-bottom: 2px;">Registration for The Eternal Convention 2012 - <i>Eternal ConSpiracy 2012</i></h1>
+<h1 style="font-size: 155%;text-align: center;border-bottom: 1px solid #999;padding-bottom: 2px;">
+  <%= t(:headline_registration)  -%>
+</h1>
 
 <% remote_form_for(:registration, :url => { :action => "create" }, :html => {:method => :post}  ) do |f| -%>
   <%= f.hidden_field :event_id %>
+  <%= hidden_field_tag :lang, @lang -%>
+
+ <% unless flash[:error].blank? -%>
+   <div id="flash_messages" style="height: 50px; padding: 0 20px; margin: 20px 0; border: 1px solid RED; background: #FFF;">
+     <%= content_tag('div', flash[:error], :class => 'flash error', :id => "flash_error_div", :style => "margin-top: 0px; font-weight: bold; font-size: 115%;padding: 10px 70px;" ) -%>
+   </div>
+ <% end  -%>
 
   <table cellspacing="0" cellpadding="0" border="0" width="100%;">
   				<tbody>
   				  <tr>
-    					  <td class="formlabel"><%= label_tag(:first_name, "FirstName:") %></td>
+    					  <td class="formlabel"><%= label_tag(:first_name, Participant.human_attribute_name("first_name")) %></td>
       					<td class="forminp" colspan="1"><%= text_field :participant, :first_name %></td>
-      					<td class="formlabel"><%= label_tag(:last_name, "LastName:") %></td>
+      					<td class="formlabel"><%= label_tag(:last_name, Participant.human_attribute_name("last_name"))%></td>
       					<td class="forminp" colspan="1"><%= text_field :participant, :last_name %></td>
     				</tr>
             <tr>
-          	  <td class="formlabel"><%= label_tag(:email, "EMail:") %></td>
+          	  <td class="formlabel"><%= label_tag(:email, Participant.human_attribute_name("email")) %></td>
     					<td class="forminp" colspan="1"><%= text_field :participant, :email %></td>
-    					<td class="formlabel"><%= label_tag(:country, "Country:") %></td>
+    					<td class="formlabel"><%= label_tag(:country, Participant.human_attribute_name("country")) %></td>
     					<td colspan="1"class="forminp"><%= select :participant, :country,  return_country_select, {:include_blank => true} %><br></td>
     				</tr>
 			
+  				  <tr>
+    					  <td class="formlabel"><%= label_tag(:nickname, Registration.human_attribute_name("nickname")) -%></td>
+      					<td class="forminp" colspan="1"><%= text_field :registration, :nickname %></td>
+      					<td class="formlabel"><%= label_tag(:year_of_birth, Registration.human_attribute_name("year_of_birth")) %></td>
+      					<td class="forminp" colspan="1"><%= text_field :registration, :year_of_birth %></td>
+    				</tr>
   				  <tr style="height: 20px;">
     					<td style="border-bottom: 1px solid rgb(205, 205, 205); margin-bottom: 10px;" class="formlabel">&nbsp;</td>
     					<td colspan="3" style="border-bottom: 1px solid rgb(205, 205, 205); margin-bottom: 10px;" class="forminp">&nbsp;</td>					
     				</tr>			
 		
     				<tr>
-    					<td class="formlabel"><%= f.label(:notes, "Notes:") %></td>
-    					<td class="forminp" colspan="3"><%= f.text_area( :notes, :size => "100x10") %></td>
+    					<td class="formlabel"><%= f.label(:notes, Registration.human_attribute_name("notes")) %></td>
+    					<td class="forminp" style="padding-top: 15px;" colspan="3"><%= f.text_area( :notes, :size => "100x10") %></td>
     				</tr>
     				<tr>
-    					<td class="formlabel" colspan="4">
-    					  <%= f.label(:wants_double_room, "I am interested in a bed in a Double-Room. This little luxury is going to cost me an additional 30 € payable at Checkin!") -%>
-                <%= f.check_box :wants_double_room %>
+    					<td class="formlabel" colspan="2">
+                <%= f.label(:room_i_dont_care, Registration.human_attribute_name("room_i_dont_care")) -%>
+              </td>
+              <td class="forminp" colspan="2">
+                <%= f.check_box :room_i_dont_care%>
               </td>
     				</tr>
     				<tr>
-    					<td class="formlabel" colspan="4">
-    					  <%= f.label(:wants_tripple_room, " I am interested in a bed in a Triple-Room. This little luxury is going to cost me an additional 20 € payable at Checkin!") -%>
-    					  <%= f.check_box :wants_tripple_room %>
+    					<td class="formlabel" colspan="2">
+                <%= f.label(:room_family_room, Registration.human_attribute_name("room_family_room")) -%>
+              </td>
+              <td class="forminp" colspan="2">
+    					  <%= f.check_box :room_family_room%>
     					</td>
     				</tr>
           
+    				<tr>
+    					<td class="formlabel" colspan="2">
+                <%= f.label(:room_party_room , Registration.human_attribute_name("room_party_room")) -%>
+              </td>
+              <td class="forminp" colspan="2">
+                <%= f.check_box :room_party_room%>
+              </td>
+    				</tr>
+    				<tr>
+    					<td class="formlabel" colspan="2">
+                <%= f.label(:room_pay_smaller_room, Registration.human_attribute_name("room_pay_smaller_room")) -%>
+              </td>
+              <td class="forminp" colspan="2">
+                <%= f.check_box :room_pay_smaller_room -%>
+              </td>
+            </tr>
+            <tr>
+    					<td class="formlabel" colspan="2">
+                <%= f.label(:shuttle_from_hahn, Registration.human_attribute_name("shuttle_from_hahn")) -%>
+              </td>
+              <td class="forminp" colspan="2">
+                <%= f.check_box :shuttle_from_hahn  -%>
+              </td>
+            </tr>
+
+    					<td class="formlabel" colspan="2">
+                <%= f.label(:accomodation_for_thursday, Registration.human_attribute_name("accomodation_for_thursday")) -%>
+              </td>
+              <td class="forminp" colspan="2">
+                <%= f.check_box :accomodation_for_thursday  -%>
+              </td>
+            </tr>
+
+            <tr>
+              <td class="formlabel" colspan="2" style="padding-bottom: 25px">
+                <%= f.label(:freeform_language_skill, Registration.human_attribute_name("freeform_language_skill")) -%>
+              </td>
+              <td class="forminp" colspan="2" style="padding-bottom: 25px;">
+                <%= f.select :freeform_language_skill, Registration::FREEFORM_LANG_SKILLS, :html => {:style => "width: 80px;"}-%>
+              </td>
+            </tr>
+
+          <% if @captcha_error %>
+            <tr>
+              <td colspan="4" class="formlabel" style="text-align: right;padding-right: 115px;">
+                <span class="captcha_error"><%= t(:fe_captcha_error) %></span>
+              </td>
+            </tr>
+          <% end %>
   				<tr>					
-  					<td colspan="4" class="formlabel">
+  					<td colspan="4" class="formlabel" style="margin-top: 25px;">
               <div id="recaptcha_div">
                 <%= render :partial => "recaptcha" -%>
               </div>

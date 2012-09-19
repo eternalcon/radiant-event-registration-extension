@@ -8,7 +8,7 @@ class RegistrationMailer < ActionMailer::Base
 
     recipients registration.participant.email
     from "Eternal Convention <info@eternal-con.de>"
-    subject "Eternal Convention 2012: Reservation"
+    subject "Eternal CONclave 2013: Reservation"
     sent_on Time.now 
     # @body[:prospective] = prosp
     content_type "multipart/alternative"
@@ -36,8 +36,9 @@ class RegistrationMailer < ActionMailer::Base
 
   def registration_team_email(registration)
     recipients ["andreas_pittelkow@web.de", "Desiree Tillack <desiree.tillack@gmx.de>"]
+    #recipients ["boris.raeschler@gmx.de"]
     from "Eternal Convention <info@eternal-con.de>"
-    subject "Registrierung für Eternal Convenction 2012 eingetroffen "
+    subject "Registrierung für Eternal Convenction 2013 eingetroffen "
     sent_on Time.now 
     content_type "multipart/alternative"
 

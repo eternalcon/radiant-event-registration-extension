@@ -2,14 +2,36 @@ Hallo Pittel,
 
 es ist unglaublich, aber es hat sich jemand für den Con registriert:
 
-Name: <%= @participant.first_name -%>  <%= @participant.last_name -%>
-E-Mail: <%= @participant.email -%>
-Land <%= @participant.country -%>
+  Name: <%= @participant.first_name -%>  <%= @participant.last_name -%>
 
-Doppelbett: <%= @registration.wants_double_room -%>
-Dreifachbett: <%= @registration.wants_tripple_room -%>
+  E-Mail: <%= @participant.email -%>
+
+  Land <%= @participant.country -%>
+
+  Spitzname <%= @registration.nickname -%>
+
+  Geburtsjahr<%= @registration.year_of_birth-%>
+
+
+
+Freeforms:
+
+  Bevorzugte Sprache: <%= @registration.freeform_language_skill -%>
+
+Zimmerwünsche
+
+  Ist Mir egal:   <%= @registration.room_i_dont_care == true ? "JA" : "Nein" -%>
+
+  Familienzimmer: <%= @registration.room_family_room == true ? "JA" : "Nein" -%>
+
+  Partyzimmer:    <%= @registration.room_party_room  == true ? "JA" : "Nein" -%>
+
+  Kleinerer Raum: <%= @registration.room_pay_smaller_room == true ? "JA" : "Nein" -%>
+
+
 
 Extra Notizen:
+
 - - - - - - - - - - - - - - - - - - - - 
 <%= @registration.notes -%>
 - - - - - - - - - - - - - - -  -- - - -

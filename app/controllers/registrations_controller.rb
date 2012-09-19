@@ -1,9 +1,11 @@
 #encoding: utf-8
+require 'recaptcha'
 
 class RegistrationsController < ApplicationController
-  #include Recaptcha::Verify
+  include Recaptcha::Verify
+
   no_login_required
-  radiant_layout 'default_layout'
+  radiant_layout 'eternal_design'
   
   def index
     redirect_to(:controller => "participants", :action => "new")
@@ -17,12 +19,17 @@ class RegistrationsController < ApplicationController
     
     @registration.event = Event.active_event
     @registration.participant = @participant
-    @registration.notes = "-preferebale roommates, children?, other interesting stuff for the con"
+    @registration.notes = t(:registration_notice_value)
     
+    @lang = params[:lang] || "en"
+    I18n.locale = @lang
   end    
   
   
   def create
+    @lang = params[:lang] || "en"
+    I18n.locale = @lang
+
     is_create = false
     @participant = Participant.new(params[:participant])
     @registration = Registration.new(params[:registration])
@@ -30,7 +37,7 @@ class RegistrationsController < ApplicationController
     if verify_recaptcha(:model => @participant, :message => "Please re-enter the words from the image again!" ) && @participant.valid?
       
       #we try to find if the person have already registered for a early event
-      participant = Participant.find_by_email(@participant.email)
+      participant = Participant.find(:first, :conditions => ['first_name=? AND last_name=?', @participant.first_name, @participant.last_name])
       
       if participant
         @registration.participant = participant
@@ -42,18 +49,25 @@ class RegistrationsController < ApplicationController
       if @registration.valid? 
         if @participant.save && @registration.save
           is_create = true
-          flash[:notice] = "Thank you for your registration for Eternal Con 2013"
+          flash[:notice] = t(:fn_registration_success)
         end
+      else
+        flash[:error] = t(:fe_registration_error)
       end
     else
-      logger.debug("++++++ ++ + + ++ + +  else +++++++++ ")
+     @captcha_error = true 
      #@registration.valid? 
       #render :action => "new"
       is_create = false
+     flash[:error] = t(:fe_captcha_controller)
     end
     
     respond_to do |format|
-      format.html{}
+      format.html{
+      unless is_create
+        render :action => "new"
+      end
+      }
       format.js{
         render :update do |page|
           #page.replace_html "flash_messages", :partial => "/shared/flash_messages"

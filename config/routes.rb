@@ -6,9 +6,9 @@ ActionController::Routing::Routes.draw do |map|
       end
       event.resources :game_announcements, :controller => "game_announcements"
     end
-    map.resources :participants
     
     map.namespace :admin do |admin|
+      admin.resources :participants
       admin.resources :events do |event|
         event.resources :freeforms, :controller => "admin_freeforms" do |freeform|
           freeform.resources :participants, :controller => "admin_freeform_participants" 
