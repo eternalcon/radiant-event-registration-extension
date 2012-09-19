@@ -1,0 +1,39 @@
+---
+de:
+  activerecord:
+    models:
+      registration: "Registrierung"
+      participant: "Teilnehmer"
+    attributes:
+      participant:
+        first_name: "Vorname"
+        last_name:  "Nachname"
+        email: "E-Mail"
+        country: "Nationalität"
+      registration:
+        nickname: "Spitzname"
+        year_of_birth: "Geburtsjahr"
+        notes: "Anmerkungen"
+        room_i_dont_care: "Zimmer: Einfach ein Bett der Rest ist egal"
+        room_family_room: "Zimmer: Familienzimmer bevorzugt"
+        room_party_room: "Zimmer: Ich will in ein Partyzimmer"
+        room_pay_smaller_room: "Zimmer: Ich bin bereit für einen kleineres Zimmer extra zu bezahlen"
+        shuttle_from_hahn: "Ich benötige einen Shuttle von/nach Hahn(Flughafen)"
+        accomodation_for_thursday: "Ich benötige eine Unterkunft für Do/Fr im Rittersaal"
+        freeform_language_skill: "Welche Sprache für Freeforms bevorzugst Du?"
+    errors:
+      messages:
+        blank: "muss ausgefüllt werden"
+        invalid: "ist nicht gültig"
+
+
+  fn_registration_success: "Deine Daten wurden gespeichert. Vielen Dank für Deine Registrierung für den EternalCon 2013"
+
+  fe_registration_error: "Registrierung nicht erfolgreich. Bitte fülle alle Felder aus"
+
+  fe_captcha_controller: "Registrierung nicht erfolgreich. Bitte fülle das Captcha korrekt aus"
+  fe_captcha_error: "Bitte, schreibe die korrekten Wörter in das Feld"
+  headline_registration: "Registrierung für die - <i>Eternal CONclave 2013</i>"
+
+  registration_notice_value: "Spezielle Informationen, bevorzugtes Zimmer, Kinder etc..."
+

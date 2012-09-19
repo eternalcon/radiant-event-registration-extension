@@ -1,3 +1,33 @@
 ---
 en:
-  event registration: Event Registration
+  activerecord:
+    models:
+      registration: "registration"
+      participant: "participant"
+    attributes:
+      participant:
+        first_name: "FirstName"
+        last_name:  "LastName"
+        email: "E-Mail"
+        country: "Nationality"
+      registration:
+        nickname: "NickName"
+        year_of_birth: "YearOfBirth"
+        notes: "Notes"
+        room_i_dont_care: "Room: Just give me a bed, I don´t care"
+        room_family_room: "Room: Hey, I would stay in a room for families"
+        room_party_room: "Room: I´am with the party people"
+        room_pay_smaller_room: "Room: I am willing to pay extra for a smaller room"
+        shuttle_from_hahn: "I need a shuttle from / to Hahn Airport"
+        accomodation_for_thursday: "I need an accomodation for Thursday to Friday in the Rittersaal"
+        freeform_language_skill: "Which Freefom-Language-Skill do you prefer"
+        
+
+  fn_registration_success: "Thank you for your registration for Eternal Con 2013"
+  fe_registration_error: "There have been an error: Please fill out all necessary fields"
+  fe_captcha_controller: "There have been an error: Please re-enter the words from the captcha below"
+
+  fe_captcha_error: "Please write the correct words"
+  headline_registration: "Registration for the - <i>Eternal CONclave 2013</i>"
+
+  registration_notice_value: "If you bring kids please here names and ages, -Special Information (prefered room mates etc)"
