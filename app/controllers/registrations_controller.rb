@@ -21,8 +21,10 @@ class RegistrationsController < ApplicationController
     @registration.participant = @participant
     @registration.notes = t(:registration_notice_value)
     
-    @lang = params[:lang] || "en"
+    @lang = params[:lang].gsub("'","") unless params[:lang].blank?
+    @lang =  "en" if @lang.blank?
     I18n.locale = @lang
+
   end    
   
   
