@@ -14,7 +14,7 @@
 <p>
 Du hast dich zur „Eternal ConClave 2013 angemeldet.<br>
 
-Der Convention beginnt am 17. Mai 2013 gegen 17 Uhr und endet am 20. Mai 2013 um 10 Uhr.<br>
+Der Convention beginnt am <%= l(@registration.event.startdate, :format => :long, :locale => :de) -%> gegen 17 Uhr und endet am <%= l(@registration.event.enddate, :format => :long, :locale => :de) -%> um 10 Uhr.<br>
 
 Check-in ist am Freitag zwischen 14 und 22 Uhr möglich, bitte schreibt uns eine Mail, falls du außerhalb dieser Zeit anzureisen planst.<br>
 
@@ -22,7 +22,14 @@ Ort ist die Jugendherberge Burg Stahleck in 55422 Bacharach, Deutschland. <br>
 
 Deine Anmeldung ist rechtsgültig sobald dein Conbeitrag bei uns eingetroffen ist.<br>
 
-Der Preis beträgt für 3 x Übernachtung inkl. Bettwäsche und Frühstück, Mittag, Abendbrot sowie Congebühr 119,00 € <br>
+Der Preis beträgt für 3 x Übernachtung inkl. Bettwäsche und Frühstück, Mittag, Abendbrot sowie Congebühr <br>
+
+<ul>
+  <li>Frühbucher bis Neujahr (01.01.2013)  99,00€</li>
+  <li>Normalbeitrag bis Ostern (01.04.2013) 129,00€</li>
+  <li>Last Minute (nach Ostern) 149,00€</li>
+</ul>
+
 Preise für Kinder: 
 
 <ul>
