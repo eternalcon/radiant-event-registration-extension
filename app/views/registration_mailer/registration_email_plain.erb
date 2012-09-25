@@ -2,7 +2,7 @@
   
   You registered for the „Eternal CONclave 2013“.
 
-  The Convention starts at 17th May 2013 at 17 h and ends at 20th May 2013 at 10 h.
+  The Convention starts at <%= l(@registration.event.startdate, :format => :long, :locale => :en) -%> at 17 h and ends at <%= l(@registration.event.enddate, :format => :long, :locale => :en) -%> at 10 h.
   
   Check-in is open Friday from 2 – 10 pm, please send us an email in case you intend to arrive at another time. 
 
@@ -10,7 +10,11 @@
 
   Your registration is valind as soon as we receive your payment
 
-  The price includes 3 x Accomodation and sheets, in addition breakfast, lunch, dinner and Con-fee 119.00 €
+  The price includes 3 x Accomodation and sheets, in addition breakfast, lunch, dinner and Con-fee €
+
+  Early-Birds until New Year (01.01.2013) 99 €
+  Default-Price until Easter (01.04.2013) 129€
+  Last Minute (after Easter) 149€
 
 
   Price for Kids: 
