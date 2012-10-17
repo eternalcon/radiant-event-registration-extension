@@ -21,7 +21,7 @@ def index
          
     end
     def show 
-        @price = Price.find(params[:id])
+        @category = Category.find(params[:id])
     end
     
 end
