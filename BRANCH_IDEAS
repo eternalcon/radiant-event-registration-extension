@@ -1,0 +1,9 @@
+Ideas for this branch:
+
+
+grab prices dynamically from the database.
+
+First off, get the event prices from the database and select the correct price to display depending on the time period:
+early bird, normal, late registration
+
+
