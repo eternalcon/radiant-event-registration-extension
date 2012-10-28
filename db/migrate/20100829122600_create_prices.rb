@@ -5,8 +5,7 @@ class CreatePrices < ActiveRecord::Migration
             t.decimal :price
             t.date :valid_from
             t.date :valid_until
-            t.integer :pricable_id
-            t.string :pricable_type
+             t.references :pricable, :polymorphic => true
             t.timestamps
         end
     end
