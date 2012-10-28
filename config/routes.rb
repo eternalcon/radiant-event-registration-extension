@@ -9,8 +9,6 @@ ActionController::Routing::Routes.draw do |map|
     
     map.namespace :admin do |admin|
         admin.resources :participants
-        admin.resources :participants
-        admin.resources :categories
         admin.resources :prices
         admin.resources :events do |event|
             event.resources :freeforms, :controller => "admin_freeforms" do |freeform|
