@@ -16,7 +16,7 @@
       <td><%= registration.participant.first_name + " " + registration.participant.last_name -%></td>
       <td><%= registration.participant.email -%></td>
       <td><%= I18n.localize(registration.created_at, :format => :short) -%></td>
-      <td><%= registration.notes -%></td>
+      <td><%= registration.notes.force_encoding("UTF-8") -%></td>
       <td><%= link_to "Reservierung Entfernen", 
                       admin_participant_path(registration), 
                       :method => :delete,
