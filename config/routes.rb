@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-    map.resource :registration
+    map.resources :registration
     map.resources :events do |event|
         event.resources :freeforms do |freeform|
             freeform.resources :registrations, :controller => "freeform_registrations" 
@@ -9,15 +9,16 @@ ActionController::Routing::Routes.draw do |map|
     
     map.namespace :admin do |admin|
         admin.resources :participants
-        admin.resources :prices
         admin.resources :events do |event|
+        event.resources :prices
             event.resources :freeforms, :controller => "admin_freeforms" do |freeform|
-            freeform.resources :participants, :controller => "admin_freeform_participants" 
-        end 
-        event.resources :room_auctions, :controller => "admin_room_auctions" do |room_auction|
-            room_auction.resources :bids, :controller => "admin_room_auction_bids"
-        end 
-        event.resources :blocks, :controller => "admin_blocks"
+                freeform.resources :participants, :controller => "admin_freeform_participants" 
+            end 
+            event.resources :room_auctions, :controller => "admin_room_auctions" do |room_auction|
+                room_auction.resources :bids, :controller => "admin_room_auction_bids"
+            end 
+            event.resources :blocks, :controller => "admin_blocks"
+           
         end
     end
 end
