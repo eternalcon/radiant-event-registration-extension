@@ -1,24 +1,26 @@
 <h1>Listing Prices</h1> 
 
-<table>
+<table class="index">
     <tr>
         <th>Name</th>
         <th>Price</th>
         <th>Valid From</th>
         <th>Valid Until</th>
+        <th colspan="2">&nbsp;</th>
         
     </tr>
-<% @prices.each do |price| %>
+<% for price in @prices %>
     <tr>
-        <td><%= price.name %></td>
-        <td><%= price.valid_from %></td>
-        <td><%= price.price %> </td>
-        <td><%= price.valid_until %></td>
-        
+        <td><%=h price.name %></td>
+        <td><%=h price.price %> </td>        
+        <td><%=h price.valid_from %></td>
+        <td><%=h price.valid_until %></td>
+        <td><%=h link_to "Edit", edit_admin_event_price_path(price.pricable, price)%></td>
+        <td><%=h link_to "Delete", admin_event_price_path(price.pricable, price), :method => :delete, :confirm => "Really delete record?" %></td>                
     </tr> 
 <% end %> 
 </table> 
 <br /> 
-<%= link_to "New Price", :action => "new" %>
+<%= link_to "New Price", new_admin_event_price_path %>
 
 

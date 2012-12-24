@@ -1,7 +1,9 @@
-<% form_for [@pricable, Price.new], :url => { :action => "create" } do |f| %> 
+<% form_for ([:admin, @pricable, @price]) do |f| %>
+
     <p>Price Name: <%= f.text_field :name %>  </p>
     <p>Price: <%= f.text_field :price %> </p>
     <p>Price Valid From: <%= f.date_select :valid_from %> </p>
     <p>Event Valid Until: <%= f.date_select :valid_until %> </p>
-    <p><%= submit_tag("Save") %></p>
+    <p><%= f.submit %></p>
+
 <% end %>

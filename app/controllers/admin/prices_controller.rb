@@ -7,39 +7,50 @@ class Admin::PricesController < ApplicationController
         @prices = @pricable.prices
        
     end 
-#    def new
-#    
- #       @price = Price.new
-#
- #   end
-    def create
+
+    def new
         @pricable = find_pricable
-        @price = @pricable.price.build(params[:price])
+        @price = Price.new
+
+    end
+
+    def create
+        @pricable = find_pricable       
+        @price = @pricable.prices.build(params[:price])
         if  @price.save 
             flash[:notice] = "Successfully added new price."
             redirect_to :id => nil
         else 
             render :action => "new"
         end
-         
     end
-    def show 
-        @price = Price.find(params[:id])
+
+     def edit
+        @pricable = find_pricable 
+        @price = @pricable.prices.find(params[:id])
     end
-    
-    
-    def edit
-        @price = Price.find(params[:id])
-    end
+
     def update
-        @price = Price.find(params[:id])
+        @pricable = find_pricable 
+        @price = @pricable.prices.find(params[:id])
       
         if  @price.update_attributes(params[:price]) 
-            redirect_to(:action =>"index", :notice => 'Price was successfully updated.')
+            flash[:notice] = "Successfully updated price."
+            redirect_to :action => "index", :id => nil
         else 
             render :action => "edit"
         end
     end
+
+    def destroy
+        @pricable = find_pricable 
+        @price = @pricable.prices.find(params[:id]).destroy
+        flash[:notice] = "Successfully deleted price."
+        redirect_to :action => "index", :id => nil
+    end
+
+
+
 
     private
 
