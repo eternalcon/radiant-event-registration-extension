@@ -2,7 +2,9 @@ class Freeform < ActiveRecord::Base
   belongs_to :event
   has_many :freeform_registrations
   has_many :freeform_authors
-  
+  has_many :prices, :as => :pricable 
+
+
   validates_presence_of :title
   validates_presence_of :desc_short
   validates_presence_of :desc_long

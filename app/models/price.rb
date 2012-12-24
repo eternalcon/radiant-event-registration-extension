@@ -1,4 +1,7 @@
 class Price < ActiveRecord::Base
-    has_and_belongs_to_many :events
-    belongs_to :category
+    
+    # Prices are polymorphic since they might relate to different models
+    
+    belongs_to :pricable, :polymorphic => true
+    
 end

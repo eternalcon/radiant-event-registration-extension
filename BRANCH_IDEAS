@@ -1,8 +1,10 @@
 Ideas for this branch:
 
-I would like to clean up our code / database so we can start the ETC 2014 with a fresh install and a clean database.
-I will remove anything that is not actively used at the moment (such as the categories table and related crap...) and
-maybe even redo the migrations so only one create migration for each table exists, containing all the modifications so far.
+
+grab prices dynamically from the database.
+
+First off, get the event prices from the database and select the correct price to display depending on the time period:
+early bird, normal, late registration
 
 Also, the current code will be unified (eg. using RESTful link_to statements everywhere).
 

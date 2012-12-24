@@ -18,6 +18,7 @@
         <td><%= event.enddate %></td>
         <td><%= event.active %></td>
         <td>
+          <%= link_to("Preise", admin_event_prices_path(event.id)) -%>
           <%= link_to("Blöcke", admin_event_blocks_path(event.id)) -%>
           <%= link_to("Freeforms", admin_event_freeforms_path(event.id)) -%>
           <%= link_to("Room-Auctions", admin_event_room_auctions_path(event.id)) -%>
