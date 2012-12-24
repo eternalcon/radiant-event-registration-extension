@@ -1,0 +1,7 @@
+* Restructure application    
+    * Participants need to become polymorphic association
+        * Event has_many :participants
+        * Freeform has_many :participants
+    * Routes have to be adjusted accordingly
+
+
