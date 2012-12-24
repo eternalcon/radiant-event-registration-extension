@@ -4,4 +4,7 @@ I would like to clean up our code / database so we can start the ETC 2014 with a
 I will remove anything that is not actively used at the moment (such as the categories table and related crap...) and
 maybe even redo the migrations so only one create migration for each table exists, containing all the modifications so far.
 
+Also, the current code will be unified (eg. using RESTful link_to statements everywhere).
+
+
 
