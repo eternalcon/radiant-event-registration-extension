@@ -31,10 +31,10 @@ class FreeformRegistrationMailer < ActionMailer::Base
       recipients_emails << author.email
     end
     
-    # recipients_emails << "andreas_pittelkow@web.de" # if recipients_emails.size == 0
-    # recipients_emails << "richaje@gmail.com"
-    # recipients_emails << "charlotte.dincher@gmx.de"
-    recipients_emails << "boris.raeschler@gmx.de"
+    recipients_emails << "andreas_pittelkow@web.de" # if recipients_emails.size == 0
+    recipients_emails << "richaje@gmail.com"
+    recipients_emails << "charlotte.dincher@gmx.de"
+    # recipients_emails << "boris.raeschler@gmx.de"
     
 
     
