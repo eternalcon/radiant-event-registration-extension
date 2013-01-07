@@ -38,7 +38,7 @@ class FreeformRegistrationMailer < ActionMailer::Base
     
 
     
-    #recipients recipients_emails #["andreas_pittelkow@web.de", "Desiree Tillack <desiree.tillack@gmx.de>"]
+    recipients recipients_emails #["andreas_pittelkow@web.de", "Desiree Tillack <desiree.tillack@gmx.de>"]
     #recipients ["Boris Raeschler <boris.raeschler@gmx.de>"]
     from "Eternal Convention <info@eternal-con.de>"
     subject "Eternal Convention 2013: Freeformreservierung für " + freeform_registration.freeform.title
