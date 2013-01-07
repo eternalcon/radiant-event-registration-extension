@@ -1,9 +1,10 @@
 #encoding: utf-8
 
 class FreeformRegistrationsController < ApplicationController
-  no_login_required
-  radiant_layout 'default_layout'
   before_filter :find_freeform
+
+  no_login_required
+  radiant_layout 'eternal_design'
   
   def new
     @participant = Participant.new(:country => "Germany")
@@ -17,6 +18,7 @@ class FreeformRegistrationsController < ApplicationController
     is_create = false
     @participant = Participant.new(params[:participant])
     @freeform_registration = FreeformRegistration.new(params[:freeform_registration])
+
     
     if @participant.valid? && @participant.save
       @freeform_registration.participant = @participant
@@ -31,7 +33,13 @@ class FreeformRegistrationsController < ApplicationController
     flash[:error] = "There have been some problem with your inputs..." unless is_create
     
     respond_to do |format|
-      format.html{}
+      format.html{
+        if is_create
+          render :after_registration
+        else
+          render :new
+        end
+      }
       format.js{
         render :update do |page|
           #page.replace_html "flash_messages", :partial => "/shared/flash_messages"
@@ -49,6 +57,7 @@ class FreeformRegistrationsController < ApplicationController
   private
     def find_freeform
       @freeform = Freeform.find(params[:freeform_id])
+      @freeform = Freeform.find(params[:freeform_registration][:freeform_id]) if @freeform.blank?
     end
   
     def find_event

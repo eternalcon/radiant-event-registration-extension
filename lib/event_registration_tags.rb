@@ -5,7 +5,7 @@ module EventRegistrationTags
     Creates a Link for a freeform registration
   }
   tag 'get_freeform_register_link' do |tag|
-    freeform = Freeform.find_by_title(tag.attr['title'])
+    freeform = Freeform.find_by_title_intern(tag.attr['title_intern'])
     unless freeform.blank?
       %{<a href='/events/#{freeform.event.id}/freeforms/#{freeform.id}/registrations/new' class="freeform_registration">Signup Now/Jetzt Anmelden</a>}
     end

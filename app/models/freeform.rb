@@ -6,4 +6,5 @@ class Freeform < ActiveRecord::Base
   validates_presence_of :title
   validates_presence_of :desc_short
   validates_presence_of :desc_long
+  validates_presence_of :event
 end

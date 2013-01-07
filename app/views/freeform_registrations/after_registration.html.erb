@@ -1,0 +1,10 @@
+<!--
+<div class="contextual">
+  <div class="contextual_inside"><span><a href="/Games" class="details"><< back to games overview</a></span></div>
+</div> -->
+
+<div id="flash_messages" style="height: 150px; padding: 90px;margin-top: 20px; margin-bottom: 40px;">
+	<%= content_tag('div', flash[:notice], :class => 'flash notice', :id => "flash_notice_div", :style => "margin: 20px 0; padding: 70px;" ) if flash[:notice] %>
+</div>
+
+

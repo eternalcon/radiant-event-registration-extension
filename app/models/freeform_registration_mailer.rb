@@ -7,7 +7,7 @@ class FreeformRegistrationMailer < ActionMailer::Base
 
     recipients freeform_registration.participant.email
     from "Eternal Convention <info@eternal-con.de>"
-    subject "Eternal Convention 2011: Reservation for " + freeform_registration.freeform.title
+    subject "Eternal Convention 2013: Reservation for " + freeform_registration.freeform.title
     sent_on Time.now 
     # @body[:prospective] = prosp
     content_type "multipart/alternative"
@@ -31,12 +31,17 @@ class FreeformRegistrationMailer < ActionMailer::Base
       recipients_emails << author.email
     end
     
-    recipients_emails << "andreas_pittelkow@web.de" if recipients_emails.size == 0
+    # recipients_emails << "andreas_pittelkow@web.de" # if recipients_emails.size == 0
+    # recipients_emails << "richaje@gmail.com"
+    # recipients_emails << "charlotte.dincher@gmx.de"
+    recipients_emails << "boris.raeschler@gmx.de"
+    
+
     
     #recipients recipients_emails #["andreas_pittelkow@web.de", "Desiree Tillack <desiree.tillack@gmx.de>"]
     #recipients ["Boris Raeschler <boris.raeschler@gmx.de>"]
     from "Eternal Convention <info@eternal-con.de>"
-    subject "Eternal Convention 2011: Freeformreservierung für " + freeform_registration.freeform.title
+    subject "Eternal Convention 2013: Freeformreservierung für " + freeform_registration.freeform.title
     sent_on Time.now 
     content_type "multipart/alternative"
 
