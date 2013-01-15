@@ -41,7 +41,8 @@
     				<tr>
     					<td class="formlabel"><%= f.label(:notes, Registration.human_attribute_name("notes")) %></td>
     					<td class="forminp" style="padding-top: 15px;" colspan="3"><%= f.text_area( :notes, :size => "100x10") %></td>
-    				</tr>
+            </tr>
+          <!--
     				<tr>
     					<td class="formlabel" colspan="2">
                 <%= f.label(:room_i_dont_care, Registration.human_attribute_name("room_i_dont_care")) -%>
@@ -58,7 +59,6 @@
     					  <%= f.check_box :room_family_room%>
     					</td>
     				</tr>
-        <!-- 
     				<tr>
     					<td class="formlabel" colspan="2">
                 <%= f.label(:room_party_room , Registration.human_attribute_name("room_party_room")) -%>
