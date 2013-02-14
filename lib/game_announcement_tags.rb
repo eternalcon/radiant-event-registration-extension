@@ -17,8 +17,9 @@ module GameAnnouncementTags
     txt = ""
     
     Event.active_event.games.each do |game|
-      txt += %{<div class="game_round_div">}
-      txt += %{<h4>#{game.game_title}</h4>}
+      txt += %{<div class="pricebox">}
+      txt += %{<p class="sub">#{game.game_title}</p>}
+      txt += %{<p class="copy">}
       txt += %{<table class="game_round_table">}
       txt += %{<tr><th>Author:</th><td>#{game.name_of_gamemaster}</td></tr>}
       txt += %{<tr><th>Language:</th><td>#{get_game_language game}</td></tr>}
@@ -29,6 +30,7 @@ module GameAnnouncementTags
       txt += %{<tr><th>Description:</th><td>#{simple_format(game.description)}</td></tr>}
       
       txt += %{</table>}
+      txt += %{</p>}
       txt += %{</div>}
     end
     

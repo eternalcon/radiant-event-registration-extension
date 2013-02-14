@@ -2,7 +2,7 @@
 
 class GameAnnouncementsController < ApplicationController
   no_login_required
-  radiant_layout 'default_layout'
+  radiant_layout 'eternal_design'
   
   
   def new
@@ -29,7 +29,14 @@ class GameAnnouncementsController < ApplicationController
     end
     
     respond_to do |format|
-      format.html{}
+      format.html{
+        if is_create
+          render
+        else
+          render :action => "new"
+        end
+      
+      }
       format.js{
         render :update do |page|
           unless is_create
