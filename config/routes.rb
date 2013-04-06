@@ -8,7 +8,7 @@ ActionController::Routing::Routes.draw do |map|
     end
     
     map.namespace :admin do |admin|
-      admin.resources :participants
+      admin.resources :participants, :collection => {:show_shuttle => :get, :show_thursday => :get}
       admin.resources :events do |event|
         event.resources :freeforms, :controller => "admin_freeforms" do |freeform|
           freeform.resources :participants, :controller => "admin_freeform_participants" 

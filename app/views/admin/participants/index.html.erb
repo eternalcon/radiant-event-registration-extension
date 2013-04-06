@@ -1,5 +1,11 @@
 <h1>Übersicht der Teilnehmer für das Event <i><%= @event.name -%></i><span style="margin-left: 15px;">(<%= @registrations.size -%>)</span></h1>
 
+<div>
+  <ul>
+    <li><%= link_to "Teilnehmer (Shuttle)", show_shuttle_admin_participants_path %></li>
+    <li><%= link_to "Teilnehmer (Übernachtung DO)", show_thursday_admin_participants_path %></li>
+</div>
+
 <table border="0" cellspacing="0" cellpadding="0" style="width: 100%;" class="index">
   <tr>
     <th>&nbsp;</th>

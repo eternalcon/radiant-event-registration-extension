@@ -1,0 +1,26 @@
+<h1>Teilnehmer die einen Bustransfer benötigen für das Event <i><%= @event.name -%></i><span style="margin-left: 15px;">(<%= @participants.size -%>)</span></h1>
+
+<div>
+  <ul>
+    <li><%= link_to "Teilnehmer (Übernachtung DO)", show_thursday_admin_participants_path %></li>
+    <li><%= link_to "Gesamtübersicht", admin_participants_path %></li>
+</div>
+
+<table border="0" cellspacing="0" cellpadding="0" style="width: 100%;" class="index">
+  <tr>
+    <th>&nbsp;</th>
+    <th>Name</th>
+    <th>E-Mail</th>
+  </tr>
+  <% counter = 1 -%>
+  <% @participants.each do |participant| -%>
+    <tr>
+      <td><%= counter -%>
+      <td><%= participant.first_name.force_encoding("UTF-8") + " " + participant.last_name.force_encoding("UTF-8") -%></td>
+      <td><%= participant.email.force_encoding("UTF-8") -%></td>
+      </td>
+    </tr>
+
+    <% counter += 1 %>
+  <% end -%>
+</table>
