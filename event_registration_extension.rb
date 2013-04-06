@@ -21,7 +21,7 @@ class EventRegistrationExtension < Radiant::Extension
        add_item "Categories", "/admin/categories", :after => "Prices"
      end
      
-     I18n.load_path += Dir[ File.join(RAILS_ROOT, 'vendor/extensions/event_registration/config', 'locales', '*.{yml}') ]
+     I18n.load_path += Dir[ File.join(RAILS_ROOT, 'vendor', 'extensions', 'event_registration', 'config', 'locales', '/*.yml') ]
      Page.send :include, EventRegistrationTags
      Page.send :include, GameAnnouncementTags
      Page.send :include, AuctionBidTags

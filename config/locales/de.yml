@@ -313,3 +313,17 @@ de:
 
   registration_notice_value: "Spezielle Informationen, bevorzugtes Zimmer, Kinder etc..."
 
+  block_type_select_filter: "Auswahl Block"
+  block_1_filter_select_list: "Block 1 (Fr. 19:00-x)"
+  block_2_filter_select_list: "Block 2 (Sa. 10:00-18:00)"
+  block_3_filter_select_list: "Block 3 (Sa. 19:00-x)"
+  block_4_filter_select_list: "Block 4 (So. 10:00-18:00)"
+  block_3_filter_select_list: "Block 5 (So. 19:00-22:00)"
+
+  game_language_select_filter: "Language (game)"
+  en_select_list: "English"
+  de_select_list: "Deutsch"
+  fr_select_list: "Französisch"
+  other_lang_select_list: "Other lang"
+
+
