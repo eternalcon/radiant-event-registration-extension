@@ -1,4 +1,5 @@
 module  GameAnnouncementsHelper
+  include Recaptcha::ClientHelper
   
   # selection for block type
   def block_type_select
