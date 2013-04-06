@@ -1,6 +1,10 @@
 #encoding: utf-8
+require 'recaptcha'
+
 
 class GameAnnouncementsController < ApplicationController
+  include Recaptcha::Verify
+
   no_login_required
   radiant_layout 'eternal_design'
   
@@ -21,11 +25,16 @@ class GameAnnouncementsController < ApplicationController
     @event = Event.find(params[:game][:event_id])
     @game = Game.new(params[:game])
     
-    if @game.valid? && @game.save
-      is_create = true
-      flash[:notice] = "Thank you for your entry"
+    if verify_recaptcha(:model => @game, :message => "Please re-enter the words from the image again!" ) && @game.valid?
+
+      if @game.save
+        is_create = true
+        flash[:notice] = "Thank you for your entry"
+      else
+        flash[:error] = "There has been something wrong with your entries. Maybe you have missed something"
+      end
     else
-      flash[:error] = "There has been something wrong with your entries. Maybe you have missed something"
+      @captcha_error = true 
     end
     
     respond_to do |format|

@@ -39,8 +39,24 @@
 				<td class="forminp" colspan="1"><%= text_field :game, :player_count, :style => "width: 45px;" -%></td>
 				<td class="formlabel"><%= label_tag(:game_language, "Language:") %></td>
 				<td colspan="1"class="forminp"><%= game_language_select %><br></td>
-  		</tr>
-  
+      </tr>
+
+      <% if @captcha_error %>
+        <tr>
+          <td colspan="4" class="formlabel" style="text-align: right;padding-right: 115px;">
+            <span class="captcha_error"><%= t(:fe_captcha_error) %></span>
+          </td>
+        </tr>
+      <% end %>
+  		<tr>					
+  		  <td colspan="4" class="formlabel" style="padding-top: 25px;">
+          <div id="recaptcha_div">
+               <%= render :partial => "/registrations/recaptcha" -%>
+          </div>
+  					<%#= label_tag(:newsletter, "To receive our Newsletter with Updates about upcoming Events etc., please check this box:") %>
+  					<%#= check_box :participant, :newsletter %><br></td>
+  	  </tr>
+
       <tr style="height: 20px;">
     		<td class="formlabel">&nbsp;</td>
     		<td class="forminp">&nbsp;</td>					
