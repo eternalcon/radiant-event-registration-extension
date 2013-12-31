@@ -2,8 +2,7 @@ Herzlich Willkommen <%= @participant.first_name + " " + @participant.last_name -
 
 Du hast dich zum  „Eternal CON 2014" angemeldet.
 
-Der Convention beginnt am <%= #{@registration.event.startdate.day}.#{@registration.event.startdate.month}.#{@registration.event.startdate.year}" -%> gegen 17 Uhr und
-endet am <%= #{@registration.event.enddate.day}.#{@registration.event.enddate.month}.#{@registration.event.enddate.year}" -%> um 10 Uhr. <br>
+Der Convention beginnt am <%= @registration.event.startdate -%> gegen 17 Uhr und endet am <%= @registration.event.enddate -%> um 10 Uhr.
 
 Check-in ist am Freitag zwischen 14 und 22 Uhr möglich, bitte schreibt uns eine Mail, falls du außerhalb dieser Zeit anzureisen planst.
 
