@@ -12,20 +12,21 @@ class RegistrationsController < ApplicationController
   end
 
   def new
+    active_event = Event.active_event
+    redirect_to "/" if active_event.blank?
+
     @participant = Participant.new(:country => "Germany")
     @registration = Registration.new
     @registration.errors.add :base, "Word verification response is incorrect, please try again." if !params[:error].blank? && params[:error] == "true"
-    
-    
-    @registration.event = Event.active_event
+    @registration.event = active_event
     @registration.participant = @participant
     @registration.notes = t(:registration_notice_value)
-    
+
     @lang = params[:lang].gsub("'","") unless params[:lang].blank?
     @lang =  "en" if @lang.blank?
     I18n.locale = @lang
 
-  end    
+  end
   
   
   def create
