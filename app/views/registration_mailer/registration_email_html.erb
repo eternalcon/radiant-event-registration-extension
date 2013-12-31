@@ -16,7 +16,7 @@
   <p>
   You registered for the „Eternal CON 2014“.<br>
 
-  The Convention starts at <%= l(@registration.event.startdate, :format => :long, :locale => :en) -%> at 17 h and ends at <%= l(@registration.event.enddate, :format => :long, :locale => :en) -%> at 10 h.<br>
+  The Convention starts at <%= @registration.event.startdate -%> at 17 h and ends at <%= @registration.event.enddate -%> at 10 h.<br>
   
   Check-in is open Friday from 2 – 10 pm, please send us an email in case you intend to arrive at another time. <br>
 
