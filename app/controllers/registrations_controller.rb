@@ -6,7 +6,7 @@ class RegistrationsController < ApplicationController
 
   no_login_required
   radiant_layout 'eternal_design'
-  
+
   def index
     redirect_to(:controller => "participants", :action => "new")
   end
@@ -26,9 +26,14 @@ class RegistrationsController < ApplicationController
     @lang =  "en" if @lang.blank?
     I18n.locale = @lang
 
+    if active_event.status_value != Event::REGISTRATION_IS_AVAILABLE
+      render :action => :registration_is_not_available
+    else
+      render
+    end
   end
-  
-  
+
+
   def create
     @lang = params[:lang] || "en"
     I18n.locale = @lang
