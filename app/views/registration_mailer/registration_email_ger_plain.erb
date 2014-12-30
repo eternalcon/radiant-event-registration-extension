@@ -1,6 +1,6 @@
 Herzlich Willkommen <%= @participant.first_name + " " + @participant.last_name -%>,
 
-Du hast dich zum „Eternal Jubilee 2014" angemeldet.
+Du hast dich zum „<%= @registration.event.subtitle %>" angemeldet.
 
 Der Convention beginnt am <%= @registration.event.startdate -%> gegen 17 Uhr und endet am <%= @registration.event.enddate -%> um 10 Uhr.
 
@@ -12,8 +12,7 @@ Deine Anmeldung ist rechtsgültig sobald dein Conbeitrag bei uns eingetroffen is
 
 Der Preis beträgt für 3 x Übernachtung inkl. Bettwäsche und Frühstück, Mittag, Abendbrot sowie Congebühr:
 
-  Normalbeitrag bis Ostern (01.04.2014) 129,00€
-  Last Minute (nach Ostern) 149,00€
+  Normalbeitrag 119,00€
 
 
 Preise für Kinder: 

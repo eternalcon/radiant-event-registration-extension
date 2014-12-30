@@ -1,6 +1,6 @@
 Hallo Desi, Eini und Pittel,
 
-es ist unglaublich, aber es hat sich jemand für den Con 2014 registriert:
+es ist unglaublich, aber es hat sich jemand für den <%= @registration.event.subtitle %> registriert:
 
   Name: <%= @participant.first_name -%>  <%= @participant.last_name -%>
 
@@ -16,7 +16,7 @@ es ist unglaublich, aber es hat sich jemand für den Con 2014 registriert:
 
 Freeforms:
 
-  Bevorzugte Sprache: <%= @registration.freeform_language_skill -%>
+  Teilnahme: <%= @registration.freeform_skill_value -%>
 
 Zimmerwünsche
 

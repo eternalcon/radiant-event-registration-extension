@@ -186,9 +186,10 @@ en:
         shuttle_from_hahn: "I need a shuttle from / to Hahn Airport"
         accomodation_for_thursday: "I need an accomodation for Thursday to Friday in the Rittersaal"
         freeform_language_skill: "Which Freefom-Language-Skill do you prefer"
-        
+        freeform_skill_value: 'Please choose an option'
 
-  fn_registration_success: "Thank you for your registration for Eternal Con 2014"
+
+  fn_registration_success: "Thank you for your registration for Eternal Con 2015"
   fe_registration_error: "There have been an error: Please fill out all necessary fields"
   fe_captcha_controller: "There have been an error: Please re-enter the words from the captcha below"
 
@@ -209,3 +210,10 @@ en:
   de_select_list: "Deutsch"
   fr_select_list: "Französisch"
   other_lang_select_list: "Other lang" 
+
+  form_label_freeform: 'We are planning a big game in Pavis. In this game kids 6+ years plays together with her parents'
+  form_freeform_skill_value:
+    geek: 'I am crazy freeformer and want to manipulate the game'
+    player: 'I want to be active in the game, however I dont want to be responsible'
+    passive: 'I want to have apassive part where I can pass or check in the game everytime'
+    hater: 'I hate freeforms, let me in peace with this'
