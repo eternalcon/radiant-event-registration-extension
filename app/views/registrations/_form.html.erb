@@ -1,5 +1,5 @@
 <h1 style="font-size: 155%;text-align: center;border-bottom: 1px solid #999;padding-bottom: 2px;">
-  <%= t(:headline_registration)  -%>
+  <%= t(:headline_registration, event_title: @registration.event.subtitle)  -%>
 </h1>
 
 <% remote_form_for(:registration, :url => { :action => "create" }, :html => {:method => :post}  ) do |f| -%>
