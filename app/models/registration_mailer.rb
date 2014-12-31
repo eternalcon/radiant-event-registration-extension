@@ -35,8 +35,8 @@ class RegistrationMailer < ActionMailer::Base
 
 
   def registration_team_email(registration)
-    #recipients ["andreas_pittelkow@web.de", "Desiree Tillack <desiree.tillack@gmx.de>", "Christian Einsporn <christian.einsporn@t-online.de>"]
-    recipients ["boris.raeschler@gmx.de"]
+    recipients ["andreas_pittelkow@web.de", "Desiree Tillack <desiree.tillack@gmx.de>", "Christian Einsporn <christian.einsporn@t-online.de>"]
+    #recipients ["boris.raeschler@gmx.de"]
     from "Eternal Convention <info@eternal-con.de>"
     subject "Registrierung für Eternal Convenction 2015 eingetroffen "
     sent_on Time.now 
