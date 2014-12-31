@@ -187,6 +187,12 @@ en:
         accomodation_for_thursday: "I need an accomodation for Thursday to Friday in the Rittersaal"
         freeform_language_skill: "Which Freefom-Language-Skill do you prefer"
         freeform_skill_value: 'Please choose an option'
+    errors:
+      models:
+        registration:
+          attributes:
+            freeorm_skill_value: 
+              blank: Please choose one option
 
 
   fn_registration_success: "Thank you for your registration for Eternal Con 2015"

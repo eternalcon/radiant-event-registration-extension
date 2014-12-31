@@ -21,7 +21,7 @@ class RegistrationsController < ApplicationController
     @registration.event = active_event
     @registration.participant = @participant
     @registration.notes = t(:registration_notice_value)
-    @registration.freeform_skill_value = t('form_freeform_skill_value.hater')
+    @registration.freeform_skill_value = nil
 
     @lang = params[:lang].gsub("'","") unless params[:lang].blank?
     @lang =  "en" if @lang.blank?
