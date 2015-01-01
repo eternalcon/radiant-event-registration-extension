@@ -6,7 +6,7 @@ class RegistrationsController < ApplicationController
 
   no_login_required
   radiant_layout 'eternal_design'
-  
+
   def index
     redirect_to(:controller => "participants", :action => "new")
   end
@@ -21,14 +21,20 @@ class RegistrationsController < ApplicationController
     @registration.event = active_event
     @registration.participant = @participant
     @registration.notes = t(:registration_notice_value)
+    @registration.freeform_skill_value = nil
 
     @lang = params[:lang].gsub("'","") unless params[:lang].blank?
     @lang =  "en" if @lang.blank?
     I18n.locale = @lang
 
+    if active_event.status_value != Event::REGISTRATION_IS_AVAILABLE
+      render :action => :registration_is_not_available
+    else
+      render
+    end
   end
-  
-  
+
+
   def create
     @lang = params[:lang] || "en"
     I18n.locale = @lang
@@ -38,17 +44,16 @@ class RegistrationsController < ApplicationController
     @registration = Registration.new(params[:registration])
 
     if verify_recaptcha(:model => @participant, :message => "Please re-enter the words from the image again!" ) && @participant.valid?
-      
+
       #we try to find if the person have already registered for a early event
       participant = Participant.find(:first, :conditions => ['first_name=? AND last_name=?', @participant.first_name, @participant.last_name])
-      
+
       if participant
         @registration.participant = participant
       else
         @registration.participant = @participant
       end
-      
-      
+
       if @registration.valid? 
         if @participant.save && @registration.save
           is_create = true
@@ -64,7 +69,7 @@ class RegistrationsController < ApplicationController
       is_create = false
      flash[:error] = t(:fe_captcha_controller)
     end
-    
+
     respond_to do |format|
       format.html{
       unless is_create

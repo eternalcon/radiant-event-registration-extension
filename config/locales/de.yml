@@ -297,21 +297,27 @@ de:
         shuttle_from_hahn: "Ich benötige einen Shuttle von/nach Hahn(Flughafen)"
         accomodation_for_thursday: "Ich benötige eine Unterkunft für Do/Fr im Rittersaal"
         freeform_language_skill: "Welche Sprache für Freeforms bevorzugst Du?"
+        freeform_skill_value: 'Bitte eine Möglichkeit wählen'
     errors:
       messages:
         blank: "muss ausgefüllt werden"
         invalid: "ist nicht gültig"
+      models:
+        registration:
+          attributes:
+            freeorm_skill_value:
+              blank: Bitte hier eine Option auswählen (Freeform Typ)
 
 
-  fn_registration_success: "Deine Daten wurden gespeichert. Vielen Dank für Deine Registrierung für den EternalCon 2014"
+  fn_registration_success: "Deine Daten wurden gespeichert. Vielen Dank für Deine Registrierung für den EternalCon 2015"
 
   fe_registration_error: "Registrierung nicht erfolgreich. Bitte fülle alle Felder aus"
 
   fe_captcha_controller: "Registrierung nicht erfolgreich. Bitte fülle das Captcha korrekt aus"
   fe_captcha_error: "Bitte, schreibe die korrekten Wörter in das Feld"
-  headline_registration: "Registrierung für das - <i>Eternal Jubilee 2014</i>"
+  headline_registration: "Registrierung für - <i>%{event_title}</i>"
 
-  registration_notice_value: "Spezielle Informationen, bevorzugtes Zimmer, Kinder etc..."
+  registration_notice_value: "Spezielle Informationen, bevorzugtes Zimmer... Wenn Ihr Kinder mitbringt gebt bitte das Alter an"
 
   block_type_select_filter: "Auswahl Block"
   block_1_filter_select_list: "Block 1 (Fr. 19:00-x)"
@@ -326,4 +332,9 @@ de:
   fr_select_list: "Französisch"
   other_lang_select_list: "Other lang"
 
-
+  form_label_freeform: 'Wir planen eine großes gemeinsames Spiel in Pavis.In diesem Spiel spielen auch Kinder ab 6 Jahren mit ihren Eltern mit'
+  form_freeform_skill_value:
+    geek: 'Ich bin ein total verrückter Freeformer und will das Spiel manipulieren'
+    player: 'Ich will aktiv mitspielen, jedoch keine große Verantwortuing haben'
+    passive: 'Ich möchte passiv am Spiel teilnehmen und jederzeit ein- oder aussteigen können'
+    hater: 'Ich hasse Freeforms, lasst mich damit in Ruhe'

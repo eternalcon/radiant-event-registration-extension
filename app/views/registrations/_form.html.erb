@@ -1,5 +1,5 @@
 <h1 style="font-size: 155%;text-align: center;border-bottom: 1px solid #999;padding-bottom: 2px;">
-  <%= t(:headline_registration)  -%>
+  <%= t(:headline_registration, event_title: @registration.event.subtitle)  -%>
 </h1>
 
 <% remote_form_for(:registration, :url => { :action => "create" }, :html => {:method => :post}  ) do |f| -%>
@@ -42,7 +42,7 @@
     					<td class="formlabel"><%= f.label(:notes, Registration.human_attribute_name("notes")) %></td>
     					<td class="forminp" style="padding-top: 15px;" colspan="3"><%= f.text_area( :notes, :size => "100x10") %></td>
             </tr>
-          <!--
+
     				<tr>
     					<td class="formlabel" colspan="2">
                 <%= f.label(:room_i_dont_care, Registration.human_attribute_name("room_i_dont_care")) -%>
@@ -75,14 +75,41 @@
                 <%= f.check_box :room_pay_smaller_room -%>
               </td>
             </tr>
-        -->
 
 
             <tr>
-    					<td class="formlabel" colspan="2">
-                <%= f.label(:shuttle_from_hahn, Registration.human_attribute_name("shuttle_from_hahn")) -%>
+              <td class="formlabel" colspan="4" style='padding-top: 15px'>
+                <%= t('form_label_freeform') %>
+              </td>
+            </tr>
+            <tr>
+              <td class="formlabel" colspan="2">
+                <%= f.label(:freeform_skill_value, Registration.human_attribute_name("freeform_skill_value")) -%>
               </td>
               <td class="forminp" colspan="2">
+                <p>
+                  <%= f.radio_button :freeform_skill_value, t('form_freeform_skill_value.geek') %>
+                  <%= t('form_freeform_skill_value.geek') %>
+                </p>
+                <p>
+                  <%= f.radio_button :freeform_skill_value, t('form_freeform_skill_value.player') %>
+                  <%= t('form_freeform_skill_value.player') %>
+                </p>
+                <p>
+                  <%= f.radio_button :freeform_skill_value, t('form_freeform_skill_value.passive') %>
+                  <%= t('form_freeform_skill_value.passive') %>
+                </p>
+                <p>
+                  <%= f.radio_button :freeform_skill_value, t('form_freeform_skill_value.hater') %>
+                  <%= t('form_freeform_skill_value.hater') %>
+                </p>
+              </td>
+            </tr>
+            <tr>
+    					<td class="formlabel" colspan="2" style='padding-top: 15px'>
+                <%= f.label(:shuttle_from_hahn, Registration.human_attribute_name("shuttle_from_hahn")) -%>
+              </td>
+    					<td class="formlabel" colspan="2" style='padding-top: 15px'>
                 <%= f.check_box :shuttle_from_hahn  -%>
               </td>
             </tr>
@@ -94,7 +121,7 @@
                 <%= f.check_box :accomodation_for_thursday  -%>
               </td>
             </tr>
-
+          <!---
             <tr>
               <td class="formlabel" colspan="2" style="padding-bottom: 25px">
                 <%= f.label(:freeform_language_skill, Registration.human_attribute_name("freeform_language_skill")) -%>
@@ -103,6 +130,7 @@
                 <%= f.select :freeform_language_skill, Registration::FREEFORM_LANG_SKILLS, :html => {:style => "width: 80px;"}-%>
               </td>
             </tr>
+          -->
 
           <% if @captcha_error %>
             <tr>
@@ -112,7 +140,7 @@
             </tr>
           <% end %>
   				<tr>					
-  					<td colspan="4" class="formlabel" style="margin-top: 25px;">
+  					<td colspan="4" class="formlabel" style="padding-top: 25px;">
               <div id="recaptcha_div">
                 <%= render :partial => "recaptcha" -%>
               </div>

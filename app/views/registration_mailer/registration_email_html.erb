@@ -10,14 +10,14 @@
 </head>
 
 <body>
-  
+
   <h3>Welcome <%= @participant.first_name + " " + @participant.last_name -%>,</h3>
-  
+
   <p>
-  You registered for the „Eternal Jubilee 2014“.<br>
+  You registered for the „<%= @registration.event.subtitle %>“.<br>
 
   The Convention starts at <%= @registration.event.startdate %> at 17 h and ends at <%= @registration.event.enddate -%> at 10 h.<br>
-  
+
   Check-in is open Friday from 2 – 10 pm, please send us an email in case you intend to arrive at another time. <br>
 
   Location is the JH Castle Stahleck in Bacharach, Germany.<br>
@@ -27,10 +27,9 @@
   The price includes 3 x Accomodation and sheets, in addition breakfast, lunch, dinner and Con-fee:  <br>
 
   <ul>
-    <li>Default-Price until Easter (01.04.2014) 129€</li>
-    <li>Last Minute (after Easter) 149€</li>
+    <li>Default-Price 119.00 €</li>
   </ul>
- 
+
   <p>Price for Kids: </p>
 
   <ul>
@@ -38,7 +37,7 @@
     <li>4-10 y = 39.00 €</li>
     <li>11-14 y = 49.00 €</li>
   </ul>
-    
+
   <p>
     Please send the money to<br>
 
